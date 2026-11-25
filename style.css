@@ -1,102 +1,197 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(
-    120deg,
-    #ff6f32,
-    #ff8b68,
-    #ffad91
-);
-    
-    line-height:1.7;
+
+body {
+    background: #55585d;
+    line-height: 1.5;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
 }
-header{
 
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:999;
+/* HEADER */
 
-}
-.navbar{
-
-    width:90%;
-    margin:auto;
-    color: #f3eee9 ;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    
-    padding:22px 0;
-
-}
-#hero{
+header {
     width: 100%;
-    min-height: 100vh;
-    background: #F88459;
+    max-width: 1230px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.navbar {
+    width: 100%;
+    padding: 25px 110px;
     display: flex;
-    justify-content:flex-start;
-    align-items:center;
-    padding: 60px 100px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+
+.head {
+    font-size: 16px;
+    color: white;
+    font-weight: 400;
+}
+
+/* NAVBAR BUTTON */
+
+.buy-btn {
+    background: #303030;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* HERO SECTION */
+
+#hero {
+    width: 100%;
+    max-width: 1230px;
+    min-height: 868px;
+    margin: 0 auto;
+
+    background: linear-gradient(
+        120deg,
+        #ff713d,
+        #ff9677,
+        #ffad91
+    );
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 110px;
+
     position: relative;
     overflow: hidden;
 }
-.hero::before{
+
+/* BIG WHITE DIAMOND DESIGN */
+
+#hero::before {
     content: "";
-
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    width: 780px;
+    height: 780px;
 
-    border: 30px solid white;
+    border: 22px solid white;
 
-    transform: rotate(45deg);
-
-    right: -1200px;
-    top: -170px;
-
-    z-index: 1;
-}
-.diamond{
-     width: 300px;
-    height: 300px;
-
-    position: absolute;
-
-    right: 0px;
-    top: 47%;
+    right: -501px;
+    top: 50%;
 
     transform: translateY(-50%) rotate(45deg);
 
-    border: 20px solid white;
-
-    overflow: hidden;
-
-    z-index: 3;
+    z-index: 1;
+    pointer-events: none;
 }
-.diamond img{
-     width: 145%;
-    height: 145%;
 
-    object-fit: cover;
+/* LEFT CONTENT */
+
+.content {
+    width: 550px;
+    color: white;
+
+    position: relative;
+    z-index: 5;
+}
+
+.content h1 {
+    font-size: 54px;
+    line-height: 1.24;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.content p {
+    font-size: 20px;
+    line-height: 1.38;
+    max-width: 480px;
+}
+
+/* MAIN BUTTON */
+
+.hero-button {
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-block;
+
+    background: #303030;
+    color: white;
+
+    padding: 23px 52px;
+    border-radius: 50px;
+
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* BUTTON HOVER */
+
+.btn:hover,
+.buy-btn:hover {
+    background: white;
+    color: #303030;
+    transition: 0.3s;
+}
+
+/* IMAGE DIAMOND */
+
+.diamond {
+    width: 645px;
+    height: 645px;
 
     position: absolute;
 
-    left: -22%;
-    top: -22%;
+    right: -181px;
+    top: 50%;
 
-    transform: rotate(-45deg);
+    transform: translateY(-50%);
+
+    background: white;
+
+    clip-path: polygon(
+        50% 0%,
+        100% 50%,
+        50% 100%,
+        0% 50%
+    );
+
+    z-index: 3;
+}
+
+/* IMAGE */
+
+.diamond img {
+    position: absolute;
+
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+
+    top: 20px;
+    left: 20px;
+
+    object-fit: cover;
 
     clip-path: polygon(
         50% 0%,
@@ -105,60 +200,118 @@ header{
         0% 50%
     );
 }
-.content{
-    width: 42%;
-    color: #fff;
-    position: relative;
-    z-index: 5;
-}
-.content h1{
-    font-size: 42px;
-    line-height: 1.08;
-    margin-bottom: 12px;
-}
-.content p {
-    font-size: 13px;
-    line-height: 1.4;
-    max-width: 430px;
-}
-.logo{
 
-    font-size:32px;
-    font-family:'Cinzel',serif;
-    color:white;
-    font-weight:bold;
+/* TABLET RESPONSIVE */
 
-}
-.buy-btn{
+@media (max-width: 900px) {
 
-    background:#323030;
-    color:rgb(246, 242, 242);
-    padding:13px 28px;
-    border-radius:40px;
-    font-weight: bold;
+    header {
+        width: 100%;
+    }
 
-}
-.buy-btn:focus-visible{
+    .navbar {
+        padding: 20px 30px;
+    }
 
-    background:#fff;
-    color:#4f4c4c;
+    #hero {
+        padding: 130px 40px 60px;
+        min-height: 100vh;
+    }
 
+    .content {
+        width: 55%;
+    }
+
+    .content h1 {
+        font-size: 38px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .btn {
+        font-size: 17px;
+        padding: 15px 28px;
+    }
+
+    .diamond {
+        width: 420px;
+        height: 420px;
+        right: -130px;
+    }
+
+    #hero::before {
+        width: 570px;
+        height: 570px;
+        right: -200px;
+    }
 }
-.hero-button{
-    margin-top: 30px;
-}
-.btn{
-    display:inline-block;
-    background:#3d3b3b;
-    color:#f3eee9;
-    padding:15px 30px;
-    border-radius:40px;
-    font-weight:bold;
-}
-.head{
-    font-size: medium;
-    font-family: 'cinze1' serif;
-    color: #f4e9e9;
-    font-weight: lighter;
-    padding: 22px 0;
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    header {
+        position: absolute;
+    }
+
+    .navbar {
+        padding: 18px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .head {
+        font-size: 12px;
+    }
+
+    .buy-btn {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    #hero {
+        min-height: 100vh;
+        padding: 160px 25px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .content h1 {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 15px;
+        padding: 14px 25px;
+    }
+
+    .diamond {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 50px auto 0;
+        flex-shrink: 0;
+    }
+
+    #hero::before {
+        display: none;
+    }
 }
